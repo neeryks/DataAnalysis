@@ -1,8 +1,6 @@
 import plotly.express as px
 import pandas as pd
 import json
-import numpy as np
-from pyparsing import col
 
 
 india_map = json.load(open('states_india.geojson','r'))
@@ -11,7 +9,7 @@ df_s = pd.DataFrame({'Stats':df['Unnamed: 8'][3:38]},)
 #print(df_s)
 df = pd.concat([df['Unnamed: 1'][3:38],df_s],axis=1,ignore_index=True)
 df.reset_index(drop=True,inplace=True)
-df = df.rename(columns={df.columns[0]:"State",df.columns[1]:"Stat"})
+df = df.rename(columns={df.columns[0]:"State",df.columns[1]:"StateWise Population (Crore)"})
 #print(df)
 state_id_json = []
 state_name_json = []
@@ -25,11 +23,15 @@ for st in india_map['features']:
 state_id = pd.DataFrame({"State":state_name_json}).sort_values(by=['State'])
 #print(state_id,df)
 df = pd.merge(df,state_id,on='State')
-df = df.append({"State":"Telangana","Stat":35003},ignore_index=True)
+df = df.append({"State":"Telangana","StateWise Population (Crore)":35003},ignore_index=True)
+df['StateWise Population (Crore)'] = list(map(lambda x:x/10000 ,df['StateWise Population (Crore)']))
 print(df)
 
-fig = px.choropleth(df,geojson=india_map,locations='State',color='Stat',featureidkey="properties.st_nm",scope='asia')
+fig = px.choropleth(df,geojson=india_map,locations='State',color='StateWise Population (Crore)',featureidkey="properties.st_nm",scope='asia')
 fig.update_geos(fitbounds="locations", visible=False)
+fig.update_layout(
+    height=800,
+    title_text='StateWise Population Distribution INDIA')
 fig.show()
 
 #print(df)
