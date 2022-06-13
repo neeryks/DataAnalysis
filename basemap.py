@@ -17,5 +17,6 @@ class geoindiastate:
         fig.update_layout(height=800,title_text= self.name)
         fig.update_traces(marker_line_width=1, marker_opacity=1,marker_line_color = "white")
         return fig.show()
+
     
 

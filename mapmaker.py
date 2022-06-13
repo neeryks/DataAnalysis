@@ -5,7 +5,7 @@ import time
 
 
 print("Select The File ")
-time.sleep(3)
+time.sleep(2)
 file = fd.askopenfilename()
 file_ext = file.split(".")[-1]
 
