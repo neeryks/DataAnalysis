@@ -18,6 +18,9 @@ ext_dict = {
             "sql":pd.read_sql}
 df = ext_dict[file_ext](file)
 attl = []
+print("Column Names :")
+for x in df.columns:
+    print(x)
 att_list = ["reference column name","plot for column name","name of map"]
 for attributes in att_list:
     att = input(f'Enter {attributes}: ')

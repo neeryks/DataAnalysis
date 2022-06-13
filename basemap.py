@@ -7,7 +7,7 @@ class geoindiastate:
     def __init__(self,file_Csv_etc,reference_to_map_with,What_to_plot_for,Name_of_map) -> None:
 
         self.file = file_Csv_etc
-        self.geo_file = json.load(open("india_statenew.geojson","r"))
+        self.geo_file = json.load(open("geojsondata/india_statenew.geojson","r"))
         self.loc = reference_to_map_with
         self.col = What_to_plot_for
         self.name = Name_of_map
