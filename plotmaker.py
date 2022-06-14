@@ -5,8 +5,8 @@ from tkinter import filedialog as fd
 import time
 
 class PlotMaker:
-    def __init__(self,Choose_plot) -> None:
-        self.Choose_plot = Choose_plot
+    def __init__(self) -> None:
+        pass
 
     def file_selector(self):
         print("Select The File ")
@@ -22,14 +22,15 @@ class PlotMaker:
         df = ext_dict[file_ext](file)
         return df
     
-    def plot_maker(self):
-        choice_df = {
-            "choropleth":gis(self.file_selector(),input("Name of Choropleth Plot: ")).showmap(input("reference Column: "),input("What to plot for : ")),
-            "bar":gis(self.file_selector(),input("Name of Bar Plot: ")).barplot(input("X-Axis: "),input("Y-Axis: ")),
-            "scatter":gis(self.file_selector(),input("Name of Scatter Plot: ")).scatterplot(input("X-Axis: "),input("Y-Axis: "))
-        }
-        figure = choice_df[self.Choose_plot]
-        return figure
+    def choromap(self,Name_of_Choroplot,reference_column,color_column):
+        fig = gis(self.file_selector(),Name_of_Choroplot).showmap(reference_column,color_column)
+        return fig
+    
+    def barmap(self,Name_of_bar_plot,Xaxis,Yaxis):
+        fig = gis(self.file_selector(),Name_of_bar_plot).barplot(Xaxis,Yaxis)
+        return fig
+    
+    def scattermap(self,Name_of_scatter_plot,Xaxis,Yaxis):
+        fig = gis(self.file_selector(),Name_of_scatter_plot).scatterplot(Xaxis,Yaxis)
+        return fig
 
-plot = PlotMaker(input("Enter name of the plot type: "))
-plot.plot_maker()
