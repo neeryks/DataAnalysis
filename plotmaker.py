@@ -5,6 +5,8 @@ from tkinter import filedialog as fd
 import time
 
 class PlotMaker:
+    def __init__(self,Choose_plot) -> None:
+        self.Choose_plot = Choose_plot
 
     def file_selector(self):
         print("Select The File ")
@@ -21,13 +23,13 @@ class PlotMaker:
         return df
     
     def plot_maker(self):
-        Choose_plot = input("Enter Plot Type: ")
         choice_df = {
             "choropleth":gis(self.file_selector(),input("Name of Choropleth Plot: ")).showmap(input("reference Column: "),input("What to plot for : ")),
             "bar":gis(self.file_selector(),input("Name of Bar Plot: ")).barplot(input("X-Axis: "),input("Y-Axis: ")),
-            "scatter":gis(self.file_selector(),input("Name of Scatter Plot: ")).scatterplot(input("X-Axis: "),input("Y-Axis: "))}
-        figure = choice_df[Choose_plot]
+            "scatter":gis(self.file_selector(),input("Name of Scatter Plot: ")).scatterplot(input("X-Axis: "),input("Y-Axis: "))
+        }
+        figure = choice_df[self.Choose_plot]
         return figure
 
-plot = PlotMaker()
+plot = PlotMaker(input("Enter name of the plot type: "))
 plot.plot_maker()
