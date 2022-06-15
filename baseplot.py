@@ -21,5 +21,8 @@ class geoindiastate:
     def scatterplot(self,xaxis,yaxis):
         fig = px.scatter(self.file,x=xaxis,y=yaxis)
         return fig.show()
+
+    def scatter_geo(self,reference_to_map_with,What_to_plot_for):
+        pass
     
 
