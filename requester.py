@@ -1,4 +1,4 @@
 from plotmaker import PlotMaker
 
 figure = PlotMaker()
-figure.choromap("Literacy Rate","States","Literacy")
+figure.choromap("Unemployment Chart","States","Unemployment")
