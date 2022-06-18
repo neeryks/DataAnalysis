@@ -1,10 +1,16 @@
+from turtle import color
 from dash import Dash,html,dcc
 from plotmaker import PlotMaker
 
 app = Dash(__name__)
 
+colors = {
+    'background': '#111111',
+    'text': '#7FDBFF'
+}
+
 app.layout = html.Div(children=[
-    html.H1(children="Data Analysis Demo Application"),
+    html.H1(children="Data Analysis Demo Application",style={"textAlign":"center","color":'#7FDBFF'}),
     html.Div(children="Choropleth MAP Application Intergration Unemployment Data"),
     dcc.Graph(id="Choropleth Graph",figure= PlotMaker().choromap("Unemployment Data India","States","Unemployment")),
     html.Div(children="Choropleth MAP Application Intergration Population Data"),
