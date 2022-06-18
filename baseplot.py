@@ -12,15 +12,15 @@ class geoindiastate:
         fig.update_geos(fitbounds="locations", visible=False)
         fig.update_layout(height=800,title_text= self.name)
         fig.update_traces(marker_line_width=1, marker_opacity=1,marker_line_color = "white")
-        return fig.show()
+        return fig
 
     def barplot(self,xaxis,yaxis):
         fig = px.bar(self.file,x=xaxis,y=yaxis)
-        return fig.show()
+        return fig
 
     def scatterplot(self,xaxis,yaxis):
         fig = px.scatter(self.file,x=xaxis,y=yaxis)
-        return fig.show()
+        return fig
 
 
     
