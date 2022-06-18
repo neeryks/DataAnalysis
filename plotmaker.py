@@ -23,14 +23,14 @@ class PlotMaker:
         return df
     
     def choromap(self,Name_of_Choroplot,reference_column,color_column):
-        fig = gis(self.file_selector(),Name_of_Choroplot).showmap(reference_column,color_column)
+        fig = gis(pd.read_csv("savedddata/datafiles/unemployment.csv"),Name_of_Choroplot).showmap(reference_column,color_column)
         return fig
     
     def barmap(self,Name_of_bar_plot,Xaxis,Yaxis):
-        fig = gis(self.file_selector(),Name_of_bar_plot).barplot(Xaxis,Yaxis)
+        fig = gis(pd.read_csv("savedddata/datafiles/population.csv"),Name_of_bar_plot).barplot(Xaxis,Yaxis)
         return fig
     
     def scattermap(self,Name_of_scatter_plot,Xaxis,Yaxis):
-        fig = gis(self.file_selector(),Name_of_scatter_plot).scatterplot(Xaxis,Yaxis)
+        fig = gis(pd.read_csv("savedddata/datafiles/literacy.csv"),Name_of_scatter_plot).scatterplot(Xaxis,Yaxis)
         return fig
 

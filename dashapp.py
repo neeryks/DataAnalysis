@@ -8,9 +8,9 @@ app.layout = html.Div(children=[
     html.Div(children="Choropleth MAP Application Intergration Unemployment Data"),
     dcc.Graph(id="Choropleth Graph",figure= PlotMaker().choromap("Unemployment Data India","States","Unemployment")),
     html.Div(children="Choropleth MAP Application Intergration Population Data"),
-    dcc.Graph(id="Choropleth Graph",figure= PlotMaker().barmap("Population Data India","State","StateWise Population (Crore)")),
+    dcc.Graph(id="Bar Graph",figure= PlotMaker().barmap("Population Data India","State","StateWise Population (Crore)")),
     html.Div(children="Choropleth MAP Application Intergration Literacy Data"),
-    dcc.Graph(id="Choropleth Graph",figure= PlotMaker().scattermap("Population Data India","States","Literacy"))
+    dcc.Graph(id="Scatter Graph",figure= PlotMaker().scattermap("Population Data India","States","Literacy"))
 
 ])
 
